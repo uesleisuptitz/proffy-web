@@ -5,6 +5,7 @@ export const IMAGES = {
 export const ICONS = {
   whatsAppIcon: require("./images/icons/whatsapp.svg"),
   backIcon: require("./images/icons/back.svg"),
+  warningIcon: require("./images/icons/warning.svg"),
   studyIcon: require("./images/icons/study.svg"),
   giveClassesIcon: require("./images/icons/give-classes.svg"),
   purpleHeartIcon: require("./images/icons/purple-heart.svg"),
