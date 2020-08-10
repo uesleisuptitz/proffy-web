@@ -2,37 +2,42 @@ import React from "react";
 import { ICONS } from "../../assets";
 import "./styles.css";
 
-function TeacherItem() {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+interface TeacherItemProps {
+  data: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ data }) => {
+  const { id, avatar, bio, cost, name, subject, whatsapp } = data;
   return (
-    <article className="teacher-item">
+    <article className="teacher-item" key={id}>
       <header>
-        <img
-          src={
-            "http://s2.glbimg.com/k9S_nEXQns81MzLlZO61JyCwqRM=/0x0:694x363/695x364/s.glbimg.com/po/tt2/f/original/2015/07/01/snapchat-flashy-features.jpg"
-          }
-          alt=""
-        />
+        <img src={avatar} alt={name} />
         <div>
-          <strong>Uéslei Suptitz</strong>
-          <span>Programação</span>
+          <strong>{name}</strong>
+          <span>{subject}</span>
         </div>
       </header>
-      <p>
-        Você termina de ler o parágrafo.
-        <br />
-        Aí tem que ler de novo porque estava viajando em outra dimensão.
-      </p>
+      <p>{bio}</p>
       <footer>
         <p>
-          Preço/hora <strong>R$ 80,00</strong>
+          Preço/hora <strong>R$ {cost}</strong>
         </p>
-        <button>
+        <a href={`https://wa.me/${whatsapp}`}>
           <img src={ICONS.whatsAppIcon} alt="whatsAppIcon" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
-}
+};
 
 export default TeacherItem;

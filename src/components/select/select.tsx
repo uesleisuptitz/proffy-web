@@ -14,12 +14,12 @@ const Select: React.FC<SelectProps> = ({ label, name, options, ...rest }) => {
   return (
     <div className="select-block">
       <label htmlFor={name}>{label}</label>
-      <select id={name} {...rest} defaultValue="">
+      <select id={name} {...rest}>
         <option value="" disabled hidden>
           Selecione uma opção
         </option>
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
+        {options.map((o, i) => (
+          <option key={o.value + i} value={o.value}>
             {o.label}
           </option>
         ))}
